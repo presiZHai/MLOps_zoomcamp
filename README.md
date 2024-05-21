@@ -4,4 +4,4 @@ This repository accompanies my journey through the MLOps Zoomcamp offered by Dat
 
 * Follow along with the lectures.
 * Practice and build hands-on MLOps skills.
-* Experiment and solidify your learnings.
+* Experiment and solidify my learnings.
