@@ -11,6 +11,3 @@ docker build -t ride-duration-prediction-service:v1 .
 ```bash
 docker run -it --rm -p 9696:9696  ride-duration-prediction-service:v1
 ```
-
-
-#][pol;''kjhgfdsa qwertyuiop[]=-0987654321\\]
