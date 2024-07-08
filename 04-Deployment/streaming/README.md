@@ -7,7 +7,7 @@
 * Send the records
 
 Links 
-* [tutorial](https://docs.amazonaws.cn/en_us/lambda/latest/dg/with-kinesis-example.html)
+* [tutorial:(https://docs.amazonaws.cn/en_us/lambda/latest/dg/with-kinesis-example.html)]
 
 ## Code snippets
 ### Sending data
@@ -122,9 +122,8 @@ docker run -it --rm \
 
 URL for testing:
 
-```bash
-* [ ](http://localhost:8080/2015-03-31/functions/function/invocations)
-```
+* [http://localhost:8080/2015-03-31/functions/function/invocations]
+
 
 ### Configuring AWS CLI to run in Docker
 
