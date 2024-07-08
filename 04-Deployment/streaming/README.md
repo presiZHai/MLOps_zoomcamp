@@ -1,20 +1,16 @@
 ## Machine Learning for Streaming
-
 * Scenario
-* Creating the role 
+* Creating the role
 * Create a Lambda function, test it
 * Create a Kinesis stream
 * Connect the function to the stream
-* Send the records 
+* Send the records
 
-Links
-
-* [Tutorial: Using Amazon Lambda with Amazon Kinesis](https://docs.amazonaws.cn/en_us/lambda/latest/dg/with-kinesis-example.html)
+Links 
+* [tutorial](https://docs.amazonaws.cn/en_us/lambda/latest/dg/with-kinesis-example.html)
 
 ## Code snippets
-
 ### Sending data
-
 
 ```bash
 KINESIS_STREAM_INPUT=ride_events
@@ -26,13 +22,12 @@ aws kinesis put-record \
 
 Decoding base64
 
-```python
+```bash
 base64.b64decode(data_encoded).decode('utf-8')
 ```
-
 Record example
 
-```json
+```bash
 {
     "ride": {
         "PULocationID": 130,
@@ -42,7 +37,6 @@ Record example
     "ride_id": 123
 }
 ```
-
 Sending this record
 
 ```bash
@@ -61,8 +55,7 @@ aws kinesis put-record \
 
 ### Test event
 
-
-```json
+```bash
 {
     "Records": [
         {
@@ -84,7 +77,6 @@ aws kinesis put-record \
     ]
 }
 ```
-
 ### Reading from the stream
 
 ```bash
@@ -102,8 +94,7 @@ SHARD_ITERATOR=$(aws kinesis \
 RESULT=$(aws kinesis get-records --shard-iterator $SHARD_ITERATOR)
 
 echo ${RESULT} | jq -r '.Records[0].Data' | base64 --decode
-``` 
-
+```
 
 ### Running the test
 
@@ -131,9 +122,9 @@ docker run -it --rm \
 
 URL for testing:
 
-* http://localhost:8080/2015-03-31/functions/function/invocations
-
-
+```bash
+* [ ](http://localhost:8080/2015-03-31/functions/function/invocations)
+```
 
 ### Configuring AWS CLI to run in Docker
 
@@ -150,7 +141,6 @@ docker run -it --rm \
     -e AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION}" \
     stream-model-duration:v1
 ```
-
 Alternatively, you can mount the `.aws` folder with your credentials to the `.aws` folder in the container:
 
 ```bash
@@ -164,20 +154,18 @@ docker run -it --rm \
 ```
 
 ### Publishing Docker images
-
 Creating an ECR repo
 
 ```bash
 aws ecr create-repository --repository-name duration-model
 ```
-
 Logging in
 
 ```bash
 $(aws ecr get-login --no-include-email)
 ```
 
-Pushing 
+Pushing
 
 ```bash
 REMOTE_URI="387546586013.dkr.ecr.eu-west-1.amazonaws.com/duration-model"
